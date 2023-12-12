@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         //deleteData();
     }
 
-
-
     private void initUI()
     {
         //E3
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Create
-    private void createData()
+    public void createData()
     {
         //E1
         //myRef.setValue("Hello, World!");
@@ -219,7 +217,8 @@ public class MainActivity extends AppCompatActivity {
             user.setAge(Integer.parseInt(ageET.getText().toString()));
             user.setSaving(Double.parseDouble(savingET.getText().toString()));
             user.setMarried(marriedCB.isChecked());
-            updateData(user);
+            myRef.child(user.getUid()).setValue(user);
+            //updateData(user);
         });
         alertDialog.setNegativeButton("Cancel", (dialog, which) ->
         {
